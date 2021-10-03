@@ -53,6 +53,76 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;;;;;;;;;;;;;;;
+;; Workspace ;;
+;;;;;;;;;;;;;;;
+
+(setq uniquify-buffer-name-style 'post-forward)
+(setq uniquify-strip-common-suffix t)
+
+;;;;;;;;;;;;;;;;;;;;;;;
+;; Window Management ;;
+;;;;;;;;;;;;;;;;;;;;;;;
+
+;; TODO: want try-save-and-switch-bffer
+;; (map! "M-w" #'kill-this-buffer)
+
+;; TODO: want some kind of recover last buffer
+(map! :g "M-T" #'winner-undo)
+
+;; TODO: something to easily move buffers from one window to another, or one
+;; workspace to another
+
+;;;;;;;;;;;;;
+;; Vertico ;;
+;;;;;;;;;;;;;
+
+;; see https://github.com/minad/vertico/blob/main/extensions/vertico-directory.el
+
+;; RET enters the directory or extends
+(map! :map vertico-map
+      "RET" #'vertico-directory-enter
+      [s-backspace] #'vertico-directory-delete-word
+      [M-backspace] #'vertico-directory-delete-word)
+
+;;;;;;;;;;
+;; OS X ;;
+;;;;;;;;;;
+
+;; command is M, option is S
+(setq mac-option-modifier 'super)
+(setq mac-command-modifier 'meta)
+
+;;;;;;;;;;;;
+;; Editor ;;
+;;;;;;;;;;;;
+
+;; zoom in once
+(doom/increase-font-size 1)
+
+;; TODO: search online seems broken, depends on ivy / counsel
+;; TODO: see if I can improve tab / enter situation with Vertico
+
+(map! :gi [s-backspace] #'backward-kill-word)
+
+;;;;;;;;;;
+;; Evil ;;
+;;;;;;;;;;
+
+;; maps evil-surround from S -> s and gS -> S. This overrides evil-snipe in
+;; visual mode, which uses s.
+(map! :map evil-surround-mode-map
+      :v "s" #'evil-surround-region
+      :v "S" #'evil-Surround-region)
+
+;; TODO: ex commands not working?
+
+;;;;;;;;;;;
+;; Magit ;;
+;;;;;;;;;;;
+
+;; TODO: forge doesn't seem to work for most things
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lispy / Lispyville ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -80,3 +150,13 @@
   ;; allow j-k as ESC again
   (remove-hook! 'evil-escape-inhibit-functions
     #'+lispy-inhibit-evil-escape-fn))
+
+;; TODO: running code sometimes breaks? (map-into) bug
+;; TODO: install eastwood / kibit
+;; TODO: custom liftoff cljfmt on save
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Language Server Protocol ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; TODO: try it out but maybe disable lsp-imenu-mode
