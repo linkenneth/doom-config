@@ -102,9 +102,11 @@
 ;; open in full-screen by default
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; zoom in a bit
-;; TODO: apparently you shouldn't be doing this. use fixed font / scale instead
-(doom/increase-font-size 1)
+;; font settings
+(setq doom-font (font-spec :family "Monaco" :size 16)
+      doom-variable-pitch-font (font-spec :family "Monaco")
+      doom-unicode-font (font-spec :family "Monaco" :size 16)
+      doom-big-font (font-spec :family "Monaco" :size 24))
 
 ;; TODO: search online seems broken, depends on ivy / counsel
 
