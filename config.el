@@ -68,13 +68,15 @@
 ;; (map! "M-w" #'kill-this-buffer)
 
 ;; TODO: want some kind of recover last buffer
-(map! :g
-      "M-w" #'bury-buffer
-      "M-t" #'projectile-find-file
-      "M-T" #'unbury-buffer)
+(map! :map general-override-mode-map
+      :g "M-w" #'bury-buffer
+      :g "M-T" #'unbury-buffer
+      :g [C-tab] #'next-buffer
+      :g [C-S-tab] #'previous-buffer)
+
+(map! :g "M-t" #'projectile-find-file)
 
 ;; TODO: better inter-workspace buffer management or one workspace to another
-
 ;;;;;;;;;;;;;
 ;; Vertico ;;
 ;;;;;;;;;;;;;
@@ -101,11 +103,15 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; zoom in a bit
+;; TODO: apparently you shouldn't be doing this. use fixed font / scale instead
 (doom/increase-font-size 1)
 
 ;; TODO: search online seems broken, depends on ivy / counsel
 
 (map! :gi [s-backspace] #'backward-kill-word)
+
+;; TODO:
+;; - M-RET, C-RET
 
 ;;;;;;;;;;
 ;; Evil ;;
@@ -113,9 +119,18 @@
 
 ;; maps evil-surround from S -> s and gS -> S. This overrides evil-snipe in
 ;; visual mode, which uses s.
+(use-package! evil-escape
+  :init
+  ;; also allows "kj" to escape
+  (setq evil-escape-unordered-key-sequence t))
+
 (map! :map evil-surround-mode-map
       :v "s" #'evil-surround-region
       :v "S" #'evil-Surround-region)
+
+;; unmaps `aya-expand' and `aya-create' which I'll never use
+(map! :i [C-tab] nil
+      :nv [C-tab] nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lispy / Lispyville ;;
@@ -128,15 +143,10 @@
   ;; bindings...
   (lispy-set-key-theme '())
   ;; since we're not using lispy keybindings, don't disable smartparens mode
-  (remove-hook! 'lispy-mode-hook #'turn-off-smartparens-mode)
-  ;; unset `transpose-sexps' because it's not useful compared to
-  ;; `lispyville-drag-forward' and `lispyville-drag-backward', and collides with
-  ;; Atom shortcuts to find file in project
-  (map! :map lispyville-mode-map
-        :n "M-t" nil)
-  )
+  (remove-hook! 'lispy-mode-hook #'turn-off-smartparens-mode))
 
 (use-package! lispyville
+  :init
   (setq lispyville-key-theme
         '((operators normal)
           c-w
@@ -146,11 +156,14 @@
           additional
           additional-insert
           additional-wrap))
-  :init
   :config
-  ;; allow j-k as ESC again
-  (remove-hook! 'evil-escape-inhibit-functions
-    #'+lispy-inhibit-evil-escape-fn))
+  ;; allow "jk" as ESC again
+  (remove-hook! 'evil-escape-inhibit-functions #'+lispy-inhibit-evil-escape-fn)
+  ;; unset `transpose-sexps' because it's not useful compared to
+  ;; `lispyville-drag-forward' and `lispyville-drag-backward', and collides with
+  ;; Atom shortcuts to find file in project
+  (map! :map lispyville-mode-map
+        :n "M-t" nil))
 
 ;;;;;;;;;;;;;
 ;; Clojure ;;
@@ -165,7 +178,7 @@
 ;;   :after flycheck
 ;;   :config (add-hook! 'cider-connected-hook #'flycheck-clojure-setup))
 
-;; TODO: custom liftoff cljfmt on save
+;; TODO: custom liftoff cljfmt on save. exp/emacs has a file for this (may be outdated)
 ;; TODO: try out running LSP server when first opening clojure file?
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
