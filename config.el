@@ -68,18 +68,18 @@
 ;; (map! "M-w" #'kill-this-buffer)
 
 ;; TODO: want some kind of recover last buffer
-(map! :g "M-T" #'winner-undo)
+(map! :g
+      "M-w" #'bury-buffer
+      "M-t" #'projectile-find-file
+      "M-T" #'unbury-buffer)
 
-;; TODO: something to easily move buffers from one window to another, or one
-;; workspace to another
+;; TODO: better inter-workspace buffer management or one workspace to another
 
 ;;;;;;;;;;;;;
 ;; Vertico ;;
 ;;;;;;;;;;;;;
 
 ;; see https://github.com/minad/vertico/blob/main/extensions/vertico-directory.el
-
-;; RET enters the directory or extends
 (map! :map vertico-map
       "RET" #'vertico-directory-enter
       [s-backspace] #'vertico-directory-delete-word
@@ -97,11 +97,13 @@
 ;; Editor ;;
 ;;;;;;;;;;;;
 
-;; zoom in once
+;; open in full-screen by default
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; zoom in a bit
 (doom/increase-font-size 1)
 
 ;; TODO: search online seems broken, depends on ivy / counsel
-;; TODO: see if I can improve tab / enter situation with Vertico
 
 (map! :gi [s-backspace] #'backward-kill-word)
 
@@ -115,14 +117,6 @@
       :v "s" #'evil-surround-region
       :v "S" #'evil-Surround-region)
 
-;; TODO: ex commands not working?
-
-;;;;;;;;;;;
-;; Magit ;;
-;;;;;;;;;;;
-
-;; TODO: forge doesn't seem to work for most things
-
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lispy / Lispyville ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -133,10 +127,16 @@
   ;; this environment first. Also "y" doesn't seem to work with the default
   ;; bindings...
   (lispy-set-key-theme '())
+  ;; since we're not using lispy keybindings, don't disable smartparens mode
+  (remove-hook! 'lispy-mode-hook #'turn-off-smartparens-mode)
+  ;; unset `transpose-sexps' because it's not useful compared to
+  ;; `lispyville-drag-forward' and `lispyville-drag-backward', and collides with
+  ;; Atom shortcuts to find file in project
+  (map! :map lispyville-mode-map
+        :n "M-t" nil)
   )
 
 (use-package! lispyville
-  :init
   (setq lispyville-key-theme
         '((operators normal)
           c-w
@@ -146,17 +146,31 @@
           additional
           additional-insert
           additional-wrap))
+  :init
   :config
   ;; allow j-k as ESC again
   (remove-hook! 'evil-escape-inhibit-functions
     #'+lispy-inhibit-evil-escape-fn))
 
-;; TODO: running code sometimes breaks? (map-into) bug
-;; TODO: install eastwood / kibit
+;;;;;;;;;;;;;
+;; Clojure ;;
+;;;;;;;;;;;;;
+
+;; TODO: see if I can get it working... known issue that no one has figured
+;; out for 4 years...
+;; squiggly-clojure -- eastwood, core.typed, and kibit linters that work
+;; through cider
+;; (use-package! flycheck-clojure
+;;   :when (featurep! :checkers syntax)
+;;   :after flycheck
+;;   :config (add-hook! 'cider-connected-hook #'flycheck-clojure-setup))
+
 ;; TODO: custom liftoff cljfmt on save
+;; TODO: try out running LSP server when first opening clojure file?
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Server Protocol ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; TODO: try it out but maybe disable lsp-imenu-mode
+;; TODO: go linting, goimports building etc.
