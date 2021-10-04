@@ -132,7 +132,8 @@
 
 ;; unmaps `aya-expand' and `aya-create' which I'll never use
 (map! :i [C-tab] nil
-      :nv [C-tab] nil)
+      :nv [C-tab] nil
+      :g "M-/" #'comment-dwim)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lispy / Lispyville ;;
@@ -176,12 +177,15 @@
 ;; squiggly-clojure -- eastwood, core.typed, and kibit linters that work
 ;; through cider
 ;; (use-package! flycheck-clojure
+;;   :hook (cider-connected-hook flycheck-clojure-setup)
 ;;   :when (featurep! :checkers syntax)
 ;;   :after flycheck
 ;;   :config (add-hook! 'cider-connected-hook #'flycheck-clojure-setup))
 
 ;; TODO: custom liftoff cljfmt on save. exp/emacs has a file for this (may be outdated)
 ;; TODO: try out running LSP server when first opening clojure file?
+
+;; (add-hook! 'clojure-mode-hook #'format-all-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Server Protocol ;;
