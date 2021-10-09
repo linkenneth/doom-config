@@ -99,6 +99,10 @@
 ;; Editor ;;
 ;;;;;;;;;;;;
 
+;; TODO: better way to search for full path in project
+;; - better way to click-open file path in emacs (from terminal, for example)
+;; - open unknown files by default in emacs
+
 ;; open in full-screen by default
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -110,10 +114,20 @@
 
 ;; TODO: search online seems broken, depends on ivy / counsel
 
+;; TODO: /clj root dir seems to have a bunch of symlinks. see if I can not
+;; follow symlinks in projectile and other search to speed things up
+
 (map! :gi [s-backspace] #'backward-kill-word)
 
 ;; TODO:
 ;; - M-RET, C-RET
+
+;; TODO:
+;; - better support for pasting filepath and going to it (C-y does yank
+;; from kill ring, and also it doesn't seem to find the last pasted path?)
+
+;; TODO:
+;; - better way to read files > 80 chars, and also maybe put a 80 char line?
 
 ;;;;;;;;;;
 ;; Evil ;;
@@ -134,6 +148,26 @@
 (map! :i [C-tab] nil
       :nv [C-tab] nil
       :g "M-/" #'comment-dwim)
+
+;; TODO: evil-mode visual mode is quite slow for some reason.
+;; multi-cursor is even slower. the only thing that's usable is ex-mode replace.
+;; - find way to speed this up?
+;;
+;; TODO: an exercise: how can I run macros through ex mode? Tried it and didn't
+;; seem to work.
+
+;;;;;;;;;;;
+;; Magit ;;
+;;;;;;;;;;;
+
+;; removes binding that conflicts with `bury-buffer'
+(map! :map magit-mode-map
+      :g "M-w" nil)
+
+;; TODO: add +vc/browse-line-at-remote / +vc/browse-line-at-remote-kill
+;; for easier linking of code
+
+;; TODO: [ g or something to find next merge conflict?
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Lispy / Lispyville ;;
@@ -183,9 +217,23 @@
 ;;   :config (add-hook! 'cider-connected-hook #'flycheck-clojure-setup))
 
 ;; TODO: custom liftoff cljfmt on save. exp/emacs has a file for this (may be outdated)
+;; - SPC c f does format region / buffer. see if there's a way to integrate with
+;; that correctly
 ;; TODO: try out running LSP server when first opening clojure file?
 
 ;; (add-hook! 'clojure-mode-hook #'format-all-mode)
+;; TODO: emacs quite laggy and slow for large codebases... maybe figure out why
+
+;; TODO:
+;; - SPC s i (jump to symbol) could use some Marginalia annotations, like
+;; docstring if available etc., in clojure mode. or just add the defun line to it
+;; like in Go
+
+;; TODO:
+;; - cider toggle trace var and ns bindings
+
+;; TODO:
+;; - next line function indent seems to be 2 spaces, not 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Server Protocol ;;
