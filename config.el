@@ -99,6 +99,9 @@
 ;; Editor ;;
 ;;;;;;;;;;;;
 
+;; TODO: split these into files (assuming it doesn't affect load time, which I
+;; guess I don't care too much about) and add :desc to keymappings
+
 ;; TODO: better way to search for full path in project
 ;; - better way to click-open file path in emacs (from terminal, for example)
 ;; - open unknown files by default in emacs
@@ -116,6 +119,9 @@
 
 ;; TODO: /clj root dir seems to have a bunch of symlinks. see if I can not
 ;; follow symlinks in projectile and other search to speed things up
+;; TODO: no need to search .go code from clj. Find ways to limit files
+;; TODO: search up projectile search backend and see what settings they use.
+;; - could ignore git files
 
 (map! :gi [s-backspace] #'backward-kill-word)
 
@@ -149,12 +155,18 @@
       :nv [C-tab] nil
       :g "M-/" #'comment-dwim)
 
+;; TODO: comment-dwim on line isn't what I want. remap comment operator or
+;; something to this?
+
 ;; TODO: evil-mode visual mode is quite slow for some reason.
 ;; multi-cursor is even slower. the only thing that's usable is ex-mode replace.
 ;; - find way to speed this up?
 ;;
 ;; TODO: an exercise: how can I run macros through ex mode? Tried it and didn't
 ;; seem to work.
+;;
+;; TODO: exercise: try to evaluate either elisp or clojure easily inline
+;; TODO: exercise: try to run M-x commands with g/ matches
 
 ;;;;;;;;;;;
 ;; Magit ;;
@@ -187,9 +199,8 @@
   (setq lispyville-key-theme
         '((operators normal)
           c-w
-          (prettify insert)
           (atom-movement t)
-          slurp/barf-lispy
+          slurp/barf-cp
           additional
           additional-insert
           additional-wrap))
@@ -201,6 +212,13 @@
   ;; Atom shortcuts to find file in project
   (map! :map lispyville-mode-map
         :n "M-t" nil))
+
+;; TODO: use lispyville to safe comment lines (lispyville-comment-or-uncomment)
+;; TODO: remap ( and ) to parenthesis in lisp modes (and maybe consider in
+;; non-lisp modes)
+;; TODO: map the always-left-parenthesis slurp / barf movements to something
+;; TODO: learn better regexps for working with lisp atoms (see lispyville atom
+;; text object def)
 
 ;;;;;;;;;;;;;
 ;; Clojure ;;
@@ -234,6 +252,9 @@
 
 ;; TODO:
 ;; - next line function indent seems to be 2 spaces, not 1
+
+;; TODO:
+;; - commands do dash-case, underscorize, camel-case, and pascal case
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Server Protocol ;;
