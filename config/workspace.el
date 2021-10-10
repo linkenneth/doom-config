@@ -11,6 +11,7 @@
       doom-unicode-font (font-spec :family "Monaco" :size 16)
       doom-big-font (font-spec :family "Monaco" :size 24))
 
+;; TODO: unable to NOT be full screen with this setup?
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (setq uniquify-buffer-name-style 'post-forward)
