@@ -1,4 +1,5 @@
 ;;; config/os.el -*- lexical-binding: t; -*-
 
-(setq mac-option-modifier 'super)
-(setq mac-command-modifier 'meta)
+(when IS-MAC
+  (setq mac-option-modifier 'super)
+  (setq mac-command-modifier 'meta))

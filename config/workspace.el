@@ -1,9 +1,5 @@
 ;;; config/workspace.el -*- lexical-binding: t; -*-
 
-;;;;;;;;;;;;;;;
-;; Workspace ;;
-;;;;;;;;;;;;;;;
-
 (setq doom-theme 'doom-one)
 
 (setq doom-font (font-spec :family "Monaco" :size 16)
@@ -16,3 +12,5 @@
 
 (setq uniquify-buffer-name-style 'post-forward)
 (setq uniquify-strip-common-suffix t)
+
+(map! :desc "Find file in project" "M-t" #'projectile-find-file)

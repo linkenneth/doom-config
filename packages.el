@@ -54,7 +54,7 @@
 ;;;;;;;;;;;;;
 
 ;; NOTE(2021-10-02): pin cider to fix an execution bug
-(package! map :pin "bb50dba")
+;; (package! map :pin "bb50dba")
 
 ;; TODO: see if I can get it working... known issue that no one has figured
 ;; out for 4 years...

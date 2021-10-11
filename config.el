@@ -32,6 +32,7 @@
 ;;;;;;;;;;;;;;;
 
 (load! "config/org")
+(load! "config/lisp")
 (load! "config/clojure")
 
 ;;;;;;;;;;;;;;;;;;
