@@ -21,22 +21,22 @@
 ;; General ;;
 ;;;;;;;;;;;;;
 
-(load! "config/user")
-(load! "config/os")
-(load! "config/workspace")
-(load! "config/windows")
-(load! "config/editor")
+(load! "modules/user")
+(load! "modules/os")
+(load! "modules/workspace")
+(load! "modules/windows")
+(load! "modules/editor")
 
 ;;;;;;;;;;;;;;;
 ;; Languages ;;
 ;;;;;;;;;;;;;;;
 
-(load! "config/org")
-(load! "config/lisp")
-(load! "config/clojure")
+(load! "modules/org")
+(load! "modules/lisp")
+(load! "modules/clojure")
 
 ;;;;;;;;;;;;;;;;;;
 ;; Environments ;;
 ;;;;;;;;;;;;;;;;;;
 
-(load! "config/liftoff")
+(load! "modules/liftoff")
