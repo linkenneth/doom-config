@@ -41,3 +41,4 @@
 (load! "modules/lisp")
 (load! "modules/clojure")
 (load! "modules/go")
+(load! "modules/web")

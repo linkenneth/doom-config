@@ -12,5 +12,4 @@
         :nvi [C-tab] nil
         :nv "g/" #'evilnc-comment-operator))
 
-;; TODO: exercise: try to run M-x commands with g/ matches
 ;; TODO: g k and g j may be more useful to go down by indentation block
