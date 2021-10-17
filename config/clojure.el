@@ -24,7 +24,8 @@
 ;; like in Go
 
 ;; TODO:
-;; - cider toggle trace var and ns bindings
+;; - cider toggle trace var and ns bindings, and learn how to do them
+;; https://docs.cider.mx/cider/debugging/tracing.html
 
 ;; TODO:
 ;; - commands do dash-case, underscorize, camel-case, and pascal case

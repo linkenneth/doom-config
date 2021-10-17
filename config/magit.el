@@ -8,3 +8,4 @@
   (setq browse-at-remote-add-line-number-if-no-region-selected t))
 
 ;; TODO: [ g or something to find next merge conflict?
+;; TODO: SPC g o h or similar to open commit history in browser
