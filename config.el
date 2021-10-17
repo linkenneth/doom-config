@@ -27,6 +27,12 @@
 (load! "modules/windows")
 (load! "modules/editor")
 
+;;;;;;;;;;;;;;;;;;
+;; Environments ;;
+;;;;;;;;;;;;;;;;;;
+
+(load! "modules/liftoff")
+
 ;;;;;;;;;;;;;;;
 ;; Languages ;;
 ;;;;;;;;;;;;;;;
@@ -34,9 +40,4 @@
 (load! "modules/org")
 (load! "modules/lisp")
 (load! "modules/clojure")
-
-;;;;;;;;;;;;;;;;;;
-;; Environments ;;
-;;;;;;;;;;;;;;;;;;
-
-(load! "modules/liftoff")
+(load! "modules/go")

@@ -12,6 +12,5 @@
         :nvi [C-tab] nil
         :nv "g/" #'evilnc-comment-operator))
 
-;; TODO: exercise: try to evaluate either elisp or clojure easily inline
 ;; TODO: exercise: try to run M-x commands with g/ matches
-;; TODO: ] ] and [ [ may be more useful to go down by indentation block
+;; TODO: g k and g j may be more useful to go down by indentation block
