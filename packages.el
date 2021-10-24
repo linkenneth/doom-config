@@ -56,3 +56,11 @@
 ;; squiggly-clojure -- eastwood, core.typed, and kibit linters
 ;; (package! flycheck-clojure)
 ;; (package! flycheck-clj-kondo :disable t)
+
+;;;;;;;;;;;;;;
+;; Protobuf ;;
+;;;;;;;;;;;;;;
+
+;; TODO: this version seems glitchy. derives from prog-mode but still causes
+;; c++ linters to happen? and the rest of the stuff seems like cc-mode stuff
+(package! protobuf-mode :pin "d08bc71c96d3dfcea12de3d4efacfbad5d473e44")
