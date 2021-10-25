@@ -1,6 +1,8 @@
 ;;; config/clojure.el -*- lexical-binding: t; -*-
 
 (after! clojure-mode
+  ;; TODO: try this out
+  ;; (add-hook 'clojure-mode-hook #'format-all-mode)
   (setq clojure-indent-style 'align-arguments))
 
 ;; TODO: see if I can get it working... known issue that no one has figured
@@ -11,12 +13,7 @@
 ;;   :hook (cider-connected-hook flycheck-clojure-setup)
 ;;   :when (featurep! :checkers syntax)
 ;;   :after flycheck
-;;   :config (add-hook! 'cider-connected-hook #'flycheck-clojure-setup))
-
-;; TODO: custom liftoff cljfmt on save. exp/emacs has a file for this (may be outdated)
-;; - SPC c f does format region / buffer. see if there's a way to integrate with
-;; that correctly
-;; (add-hook! 'clojure-mode-hook #'format-all-mode)
+;;   :config (add-hook 'cider-connected-hook #'flycheck-clojure-setup))
 
 ;; TODO:
 ;; - SPC s i (jump to symbol) could use some Marginalia annotations, like
