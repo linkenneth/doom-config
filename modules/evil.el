@@ -13,3 +13,6 @@
         :nv "g/" #'evilnc-comment-operator))
 
 ;; TODO: g k and g j may be more useful to go down by indentation block
+
+;; TODO: g a / should be comment text object, not g a c, since we now use g /
+;; for comment operator

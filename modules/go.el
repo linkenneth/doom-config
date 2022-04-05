@@ -8,6 +8,8 @@
   :modes
   '(go-mode (liftoff-project-p (doom-project-root))))
 
+;; TODO: SPC c f formatting doesn't seem to work?
+
 ;; TODO: gopls seems to often give "no package" (unknown error) issues. Possibly
 ;; poor selection of project root? or what? could have to do with not using go.mod
 ;; as well as not using GOPATH?
@@ -16,3 +18,6 @@
 
 ;; TODO: flycheck golang ci lint doesn't seem to be working
 ;; TODO: go guru LSP stuff seems incredibly slow for large projects
+
+;; TODO: something seems wrong a lot of the time with Go LSP. figure out what's
+;; wrong

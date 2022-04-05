@@ -41,4 +41,6 @@
 (load! "modules/lisp")
 (load! "modules/clojure")
 (load! "modules/go")
+;; TODO: consolidate or split?
 (load! "modules/web")
+(load! "modules/javascript")
