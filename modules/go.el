@@ -1,4 +1,4 @@
-;;; go.el -*- lexical-binding: t; -*-
+;;; modules/go.el -*- lexical-binding: t; -*-
 
 (set-formatter!
   'liftoff-goimports

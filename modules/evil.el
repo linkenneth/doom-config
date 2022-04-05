@@ -1,4 +1,4 @@
-;;; config/evil.el -*- lexical-binding: t; -*-
+;;; modules/evil.el -*- lexical-binding: t; -*-
 
 (after! evil-escape
   (setq evil-escape-unordered-key-sequence t))

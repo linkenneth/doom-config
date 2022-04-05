@@ -1,4 +1,4 @@
-;;; markdown.el -*- lexical-binding: t; -*-
+;;; modules/markdown.el -*- lexical-binding: t; -*-
 
 ;; TODO: folding by section isn't really doing well for markdown. What I'd like
 ;; is to fold by headers, not fold a few parentheses. tab does allow for this,

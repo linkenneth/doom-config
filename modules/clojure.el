@@ -1,4 +1,4 @@
-;;; config/clojure.el -*- lexical-binding: t; -*-
+;;; modules/clojure.el -*- lexical-binding: t; -*-
 
 (after! clojure-mode
   ;; TODO: try this out

@@ -37,7 +37,7 @@
 ;; Languages ;;
 ;;;;;;;;;;;;;;;
 
-(load! "modules/org")
+(load! "modules/markdown")
 (load! "modules/lisp")
 (load! "modules/clojure")
 (load! "modules/go")

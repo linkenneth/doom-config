@@ -1,4 +1,4 @@
-;;; javascript.el -*- lexical-binding: t; -*-
+;;; modules/javascript.el -*- lexical-binding: t; -*-
 
 ;; TODO: flycheck is a bit wonky. a variety of linters exist but different files
 ;; (.js, .jsx, .ts, .tsx) run different linters by default. Try to standardize

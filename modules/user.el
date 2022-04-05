@@ -1,4 +1,4 @@
-;;; config/user.el -*- lexical-binding: t; -*-
+;;; modules/user.el -*- lexical-binding: t; -*-
 
 (setq user-full-name
       (or (string-trim

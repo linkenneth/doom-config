@@ -1,4 +1,4 @@
-;;; config/editor.el -*- lexical-binding: t; -*-
+;;; modules/editor.el -*- lexical-binding: t; -*-
 
 (setq display-line-numbers-type t)
 
@@ -19,6 +19,5 @@
 (display-fill-column-indicator-mode t)
 
 (load! "evil")
-(load! "projectile")
 (load! "search")
 (load! "magit")

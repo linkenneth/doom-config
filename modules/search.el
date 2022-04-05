@@ -1,4 +1,4 @@
-;;; config/search.el -*- lexical-binding: t; -*-
+;;; modules/search.el -*- lexical-binding: t; -*-
 
 (after! vertico
   ;; see https://github.com/minad/vertico/blob/main/extensions/vertico-directory.el

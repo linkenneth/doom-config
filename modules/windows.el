@@ -1,4 +1,4 @@
-;;; config/windows.el -*- lexical-binding: t; -*-
+;;; modules/windows.el -*- lexical-binding: t; -*-
 
 (map! :map general-override-mode-map
       :desc "Bury buffer" "M-w" #'bury-buffer

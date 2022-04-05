@@ -1,4 +1,4 @@
-;;; config/workspace.el -*- lexical-binding: t; -*-
+;;; modules/workspace.el -*- lexical-binding: t; -*-
 
 (setq doom-theme 'doom-one)
 

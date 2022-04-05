@@ -1,4 +1,4 @@
-;;; config/lispy.el -*- lexical-binding: t; -*-
+;;; modules/lisp.el -*- lexical-binding: t; -*-
 
 (after! lispy
   (lispy-set-key-theme '())

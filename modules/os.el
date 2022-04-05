@@ -1,4 +1,4 @@
-;;; config/os.el -*- lexical-binding: t; -*-
+;;; modules/os.el -*- lexical-binding: t; -*-
 
 (when IS-MAC
   (setq mac-option-modifier 'super)

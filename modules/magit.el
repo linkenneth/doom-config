@@ -1,4 +1,4 @@
-;;; config/magit.el -*- lexical-binding: t; -*-
+;;; modules/magit.el -*- lexical-binding: t; -*-
 
 (after! magit
   ;; Remove binding that conflicts with `bury-buffer'
