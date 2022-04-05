@@ -38,6 +38,7 @@
 ;;;;;;;;;;;;;;;
 
 (load! "modules/markdown")
+(load! "modules/protobuf")
 (load! "modules/lisp")
 (load! "modules/clojure")
 (load! "modules/go")

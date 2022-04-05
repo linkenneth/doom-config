@@ -14,3 +14,7 @@ tmp/
 
 # Undo-tree save-files
 *.~undo-tree
+
+# Don't track custom.el. Don't put anything important in this.
+# It's only used for file local config etc.
+custom.el
