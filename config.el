@@ -45,3 +45,4 @@
 ;; TODO: consolidate or split?
 (load! "modules/web")
 (load! "modules/javascript")
+(load! "modules/python")

@@ -1,5 +1,6 @@
 ;;; modules/go.el -*- lexical-binding: t; -*-
 
+;; TODO: pull from master and make this gofumpt
 (set-formatter!
   'liftoff-goimports
   (list

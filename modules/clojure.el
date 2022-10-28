@@ -41,8 +41,15 @@
 ;; leader, and also can use vertico if exists
 ;;
 ;; TODO: SPC m i r (inspect) never works in debug mode
+;; TODO: cider inspect mode can have more intuitive controls, like U goes up
+;; (currently L).  also apparently next page and stuff should work but doesn't
+;; seem to always work?
 ;; TODO: ideally I can move around more easily in debug mode. ability to eval in
 ;; context with locals is amazing, but a bit awkward to use without standard vim
 ;; movement
 
 ;; TODO: better evil-mode integration with cider spec browse
+
+;; TODO: dired mode controls are not consistent with CIDER mode controls.
+;; - perhaps design some consistent set of controls and use across the board for
+;;   easier navigation

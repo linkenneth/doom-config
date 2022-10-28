@@ -25,3 +25,5 @@
         :m ")" #'lispyville-up-list))
 
 ;; TODO: (maybe) map the always-left-parenthesis slurp / barf movements to something
+;; TODO: turn off lispy mode automatically when fixing git merge issues, because
+;; lispy mode doens't interpret ===== etc. correctly

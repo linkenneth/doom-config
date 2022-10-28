@@ -10,3 +10,7 @@
 ;; - (see org mode keybindings)
 
 ;; TODO: clear trailing whitespace on save
+
+;; TODO: mouse click URLs that end with "." in READMEs adds it to the URL. g f
+;; does not have this behavior. Example:
+;; https://app.liftoff.io/admin/creatives/edit?creative_id=167030.

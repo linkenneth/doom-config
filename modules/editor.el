@@ -1,12 +1,11 @@
 ;;; modules/editor.el -*- lexical-binding: t; -*-
 
-(setq display-line-numbers-type t)
+;; TODO: does this do anything
+;; (setq display-line-numbers-type t)
 
-;; TODO:
-;; - modify link following (g f or clicking) to check absolute link with project
-;; base as candidate as well
-;; TODO: mouse click URLs that end with . in READMEs adds it to the URL. g f
-;; does not have this behavior
+(after! prog-mode
+  (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode))
+
 ;; TODO:
 ;; - add some kind of modifier to perform most navigations into a new buffer,
 ;; sort of like C-x 4 b. I wonder if this exists already
@@ -16,8 +15,13 @@
 (map! :i [s-backspace] #'backward-kill-word
       :nv "M-/" #'comment-line)
 
-(display-fill-column-indicator-mode t)
-
 (load! "evil")
 (load! "search")
 (load! "magit")
+
+;; TODO: buffer searching Ctrl x b should also allow searching by file name that
+;; leads to buffer, for duplicate file names like handler.clj
+;; TODO: https://www.gnu.org/software/emacs/manual/html_node/semantic/Sticky-Func-Mode.html
+;; is what I want to always keep the declaration in view. however doesn't work
+;; for all languages, and I wonder how much extra junk I add by directly
+;; enabling semantic-mode first to enable it. Play around with it though.
