@@ -6,3 +6,4 @@
 ;; LSP from Microsoft
 ;; TODO: % on a react tag should find matching tag
 ;; TODO: backtick doesn't register as string matching pair in .tsx files
+;; TODO: prettier formatting for less, css code, as well as also javascript

@@ -39,6 +39,7 @@
 
 (load! "modules/markdown")
 (load! "modules/protobuf")
+(load! "modules/sql")
 (load! "modules/lisp")
 (load! "modules/clojure")
 (load! "modules/go")

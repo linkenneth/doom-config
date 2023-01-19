@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sqlfluff fix --dialect postgres --force -p 0 - | cat -

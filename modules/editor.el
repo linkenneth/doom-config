@@ -25,3 +25,5 @@
 ;; is what I want to always keep the declaration in view. however doesn't work
 ;; for all languages, and I wonder how much extra junk I add by directly
 ;; enabling semantic-mode first to enable it. Play around with it though.
+;; TODO: investigate tree-sitter benefits and using it for structural editing
+;; and faster syntax highlighting
