@@ -9,10 +9,6 @@
          :v "S" #'evil-Surround-region)
 
         ;; unmaps `aya-expand' and `aya-create' which I'll never use
-        :nvi [C-tab] nil
-        :nv "g/" #'evilnc-comment-operator))
+        :nvi [C-tab] nil))
 
 ;; TODO: g k and g j may be more useful to go down by indentation block
-
-;; TODO: g a / should be comment text object, not g a c, since we now use g /
-;; for comment operator

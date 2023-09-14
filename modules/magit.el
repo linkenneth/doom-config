@@ -2,7 +2,15 @@
 
 (after! magit
   ;; Remove binding that conflicts with `bury-buffer'
-  (map! :map magit-mode-map "M-w" nil))
+  (map! :map magit-mode-map "M-w" nil)
+
+  (map! :leader
+        (:prefix "g"
+         ;; see buffer changes; equivalent to `git diff HEAD <file>'
+         :desc "Magit diff buffer / file" "d" #'magit-diff-buffer-file
+         ;; see all changes; equivalent to `git diff HEAD'
+         ;; (overrides "Magit file delete")
+         :desc "Magit diff unstaged" "D" #'magit-diff-unstaged)))
 
 (after! browse-at-remote
   (setq browse-at-remote-add-line-number-if-no-region-selected t))
