@@ -13,13 +13,14 @@
 ;; HACK: if Doom supports multi-formatters better, change this to use
 ;; a single set-formatter! call
 (set-formatter!
-  'liftoff-black-isort
-  (list
-   (concat (getenv "HOME") "/bin/black-isort"))
+  'liftoff-ruff
+  (list (concat (getenv "HOME") "/.doom.d/bin/ruff-check-and-format"))
   :modes
-  '(python-mode (liftoff-project-p (doom-project-root))))
+  '(python-mode))
 
-;; TODO: add mypi (and liftoff mypi) support (we already have some?)
+;; TODO: when we support using ruff to lint, use ruff linting over flake8
+;; - ruff supports LSP
+
 ;; TODO: g a ' text object for triple quotes doesn't copy the whole triple
 ;; quote, only the first inner quote
 ;; TODO: triple quote with formatted string doesn't display proper syntax

@@ -6,6 +6,6 @@
 ;; out for this and use when available
 (set-formatter!
   'sqlfluff-postgres
-  (concat (getenv "HOME") "/.doom.d/bin/sqlfluff-postgres")
+  (list (concat (getenv "HOME") "/.doom.d/bin/sqlfluff-postgres"))
   :modes
   '(sql-mode))

@@ -1,3 +1,5 @@
 #!/bin/bash
 
+set -eu -o pipefail
+
 sqlfluff fix --dialect postgres --force -p 0 - | cat -

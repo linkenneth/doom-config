@@ -9,7 +9,7 @@
 ;; - outline-hide-sublevel / outline-show-subtree etc.
 ;; - (see org mode keybindings)
 
-;; TODO: clear trailing whitespace on save
+;; TODO: clear trailing whitespace (and newlines) on save
 
 ;; TODO: mouse click URLs that end with "." in READMEs adds it to the URL. g f
 ;; does not have this behavior. Example:

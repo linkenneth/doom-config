@@ -16,8 +16,6 @@
 (load! "search")
 (load! "magit")
 
-;; TODO: buffer searching Ctrl x b should also allow searching by file name that
-;; leads to buffer, for duplicate file names like handler.clj
 ;; TODO: https://www.gnu.org/software/emacs/manual/html_node/semantic/Sticky-Func-Mode.html
 ;; is what I want to always keep the declaration in view. however doesn't work
 ;; for all languages, and I wonder how much extra junk I add by directly
