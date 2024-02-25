@@ -1,5 +1,3 @@
 #!/bin/bash
 
-set -eu -o pipefail
-
 ruff check --fix - | ruff format -
