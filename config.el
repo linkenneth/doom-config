@@ -27,6 +27,9 @@
 (load! "modules/windows")
 (load! "modules/editor")
 
+;; TODO: add LLM support (gpt.el, aider, or aider.el) (is there a diff between
+;; the last 2?)
+
 ;;;;;;;;;;;;;;;;;;
 ;; Environments ;;
 ;;;;;;;;;;;;;;;;;;

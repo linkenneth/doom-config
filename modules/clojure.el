@@ -33,7 +33,7 @@
 
 (set-formatter!
   'liftoff-cljfmt
-  (concat (getenv "REPOS") "/liftoff/tools/bin/cljfmt")
+  (list (concat (getenv "REPOS") "/liftoff/tools/bin/cljfmt"))
   :modes
   '(clojure-mode (liftoff-project-p (doom-project-root))))
 

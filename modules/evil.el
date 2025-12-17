@@ -1,6 +1,7 @@
 ;;; modules/evil.el -*- lexical-binding: t; -*-
 
 (after! evil-escape
+  (setq evil-escape-key-sequence "jk")
   (setq evil-escape-unordered-key-sequence t))
 
 (after! evil

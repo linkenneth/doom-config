@@ -3,8 +3,7 @@
 (set-formatter!
   'liftoff-gofumpt
   (list
-   (concat (getenv "REPOS") "/liftoff/tools/bin/gofumpt")
-   "-local" "liftoff/")
+   (concat (getenv "REPOS") "/liftoff/tools/bin/gofumpt"))
   :modes
   '(go-mode (liftoff-project-p (doom-project-root))))
 
